@@ -1,0 +1,10 @@
+applications:
+  - name: gh-webhook-handler-svc
+    path: target/gh-webhook-handler-1.0.0.jar
+    memory: 1G
+    buildpacks:
+      - https://github.com/cloudfoundry/java-buildpack.git
+    env:
+      JBP_CONFIG_COMPONENTS: '{jres: ["JavaBuildpack::Jre::SapMachineJRE"]}'
+    routes:
+      - route: gh-webhook-handler-svc.internal.cfapps.sap.hana.ondemand.com
